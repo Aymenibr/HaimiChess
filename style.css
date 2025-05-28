@@ -1,0 +1,130 @@
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f4f4f4;
+    padding: 30px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .container {
+    background: white;
+    padding: 25px 30px;
+    max-width: 600px;
+    min-width: 300px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #333;
+  }
+  
+  input[type="text"],
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .note {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 16px;
+  }
+  
+  .status {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .status.success {
+    color: green;
+  }
+  
+  .status.error {
+    color: red;
+  }
+  
+  #loading {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #444;
+  }
+  
+  .game-list {
+    margin-top: 20px;
+  }
+  
+  .game-list h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .game-list button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6px 0;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+  }
+  
+  .game-list .left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .game-meta {
+    font-size: 13px;
+    color: #eee;
+    font-weight: normal;
+    margin-top: 2px;
+  }
+  
+  .game-win {
+    background-color: #28a745;
+  }
+  
+  .game-loss {
+    background-color: #dc3545;
+  }
+  
+  .game-draw {
+    background-color: #6c757d;
+  }
+  
+  .game-list button:hover {
+    opacity: 0.9;
+  }
+  

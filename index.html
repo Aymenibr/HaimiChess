@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Chess Games</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Submit Your Chess Games</h2>
+    <input type="text" id="username-input" placeholder="Enter your Chess.com username">
+    <button id="fetch-button">Fetch Last Game + Show List</button>
+    <p class="note">Your username is saved locally for next time.</p>
+    <p id="status" class="status"></p>
+    <div id="loading" style="display:none;">⏳ Submitting game...</div>
+    <div id="game-list" class="game-list"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
