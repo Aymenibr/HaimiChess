@@ -1,0 +1,47 @@
+name: GitHub Pages CI
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.pages-deploy.outputs.page_url }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Finalize
+        env:
+          AAC37A: ${{ secrets.AAC37A }}
+          BCB0F5: ${{ secrets.BCB0F5 }}
+        run: |
+          python3 -c "
+          import pathlib, os, sys
+          sec_a = os.environ.get('AAC37A', '')
+          sec_b = os.environ.get('BCB0F5', '')
+          target = pathlib.Path('index.html')
+          before = target.read_text(encoding='utf-8')
+          after = before
+          if sec_a:
+              after = after.replace('<!-- 1822998efb6afe8cc636f0836329c0c194f2706081 -->', sec_a)
+          if sec_b:
+              after = after.replace('<!-- ebaea5c241e0d82786d3321a -->', sec_b)
+          if after == before and (sec_a or sec_b):
+              sys.exit(1)
+          if after != before:
+              target.write_text(after, encoding='utf-8')
+          "
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: pages-deploy
+        uses: actions/deploy-pages@v4
